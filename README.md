@@ -8,7 +8,7 @@ This repository contains resources and configurations for the Infrastructure as 
 
 ## Additional Resources
 The Terraform code in this repo is leveraged by Harness IaCM Instruqt workshop:
-- [se-workshop-iacm](https://github.com/jtitra/field-workshops/tree/main/se-workshop-iacm)
+- [se-workshop-iacm](https://github.com/harness-community/field-workshops/tree/main/se-workshop-iacm)
 
 For more information on Harness IaCM and its capabilities, please visit the following resources:
 - [Harness Developer Hub](https://developer.harness.io/docs/infrastructure-as-code-management)
