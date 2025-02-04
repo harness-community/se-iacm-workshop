@@ -32,9 +32,10 @@ resource "google_compute_instance" "gce-vm" {
     subnetwork = google_compute_subnetwork.subnet.self_link
   }
 
-  labels            = {}
-  metadata          = {}
-  resource_policies = []
-  tags              = []
+  allow_stopping_for_update = true
+  labels                    = {}
+  metadata                  = {}
+  resource_policies         = []
+  tags                      = []
 
 }
