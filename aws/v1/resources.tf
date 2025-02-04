@@ -1,5 +1,5 @@
 // Define the resources to create
-// Provisions the following into AWS: 
+// Provisions the following into AWS:
 //    VCP, Subnet, EC2 Instance, S3 Bucket
 resource "aws_vpc" "main" {
   cidr_block       = "10.0.0.0/16"
