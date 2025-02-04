@@ -12,7 +12,6 @@ resource "google_compute_network" "vpc" {
 resource "google_compute_subnetwork" "subnet" {
   name          = "main"
   ip_cidr_range = "10.0.0.0/24"
-  region        = var.gcp_region
   network       = google_compute_network.vpc.id
 }
 
@@ -20,12 +19,12 @@ resource "google_compute_subnetwork" "subnet" {
 resource "google_compute_instance" "gce-vm" {
   name         = "gce-vm-${count.index}"
   machine_type = var.instance_type
-  zone         = var.gcp_zone
   count        = 3
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image                 = "debian-cloud/debian-11"
+      resource_manager_tags = {}
     }
   }
 
@@ -33,7 +32,9 @@ resource "google_compute_instance" "gce-vm" {
     subnetwork = google_compute_subnetwork.subnet.self_link
   }
 
-  labels = {
-    owner = var.resource_owner
-  }
+  labels            = {}
+  metadata          = {}
+  resource_policies = []
+  tags              = []
+
 }
