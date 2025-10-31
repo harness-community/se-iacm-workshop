@@ -23,6 +23,7 @@ resource "aws_instance" "ec2-be" {
   ami           = "ami-04e5276ebb8451442"
   //ami           = "ami-080c353f4798a202f"
   count         = 3
+  vpc_security_group_ids = var.vpc_security_group_id != "" ? [var.vpc_security_group_id] : []
 
   subnet_id = aws_subnet.main.id
   tags = {

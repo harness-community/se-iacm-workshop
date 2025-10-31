@@ -13,6 +13,11 @@ variable "instance_type" {
   type = string
 }
 
+variable "vpc_security_group_id" {
+  type = string
+  default = ""
+}
+
 variable "tags" {
   description = "Tags to set on the bucket."
   type        = map(string)
