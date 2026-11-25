@@ -20,12 +20,17 @@ resource "aws_subnet" "main" {
 
 resource "aws_instance" "ec2-be" {
   instance_type = var.instance_type
-  ami           = "ami-04e5276ebb8451442"
+  ami           = data.aws_ami.al2023.id
   count         = 3
 
   subnet_id = aws_subnet.main.id
   tags = {
     name  = "ec2-be-${count.index}"
     extra = var.extra
+  }
+
+  // A new AMI release mid-workshop shouldn't replace the instances
+  lifecycle {
+    ignore_changes = [ami]
   }
 }
